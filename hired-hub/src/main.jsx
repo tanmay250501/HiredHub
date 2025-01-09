@@ -1,10 +1,15 @@
-import { StrictMode } from 'react'
+import { BrowserRouter } from 'react-router-dom'
 import { createRoot } from 'react-dom/client'
 import './index.css'
+import { AppContextProvider } from './context/AppContext.jsx'
 import App from './App.jsx'
 
+
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
+  <BrowserRouter>
+    <AppContextProvider>
+      <App />
+    </AppContextProvider>
+
+  </BrowserRouter>
 )

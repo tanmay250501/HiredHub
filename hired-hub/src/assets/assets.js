@@ -34,8 +34,10 @@ import samsung_logo from './samsung_logo.png'
 import adobe_logo from './adobe_logo.png'
 import amazon_logo from './amazon_logo.png'
 import Logo from './Logo.png'
+import Logo1 from './Logo1.png'
 
 export const assets = {
+    Logo1,
     logo,
     search_icon,
     cross_icon,

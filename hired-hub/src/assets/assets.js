@@ -79,6 +79,9 @@ export const assets = {
 export const JobCategories = [
     "Programming",
     "Data Science",
+    "Software Developer",
+    "Full Stack Developer",
+    "Website Designer",
     "Designing",
     "Networking",
     "Management",
@@ -88,12 +91,12 @@ export const JobCategories = [
 
 export const JobLocations = [
     "Bangalore",
-    "Washington",
+    "Karnataka",
     "Hyderabad",
     "Mumbai",
-    "California",
     "Chennai",
-    "New York"
+    "Pune",
+    "Remote"
 ]
 
 // Sample data for Manage Jobs Page

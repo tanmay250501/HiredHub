@@ -1,9 +1,17 @@
 import React from "react";
 import { assets } from "../assets/assets";
+import { useNavigate } from "react-router-dom";
 
 const JobCart = ({ job }) => {
+    const navigate = useNavigate();
+
+    const handleNavigation = (path) => {
+        window.scrollTo(0, 0);  // Reset scroll position
+        navigate(path);
+    };
+
     return(
-        <div className="border p-6 shadow rounded">
+        <div className="border p-6 shadow rounded hover:shadow-lg transition-shadow">
             <div className="flex justify-between items-center">
                 <img className="h-8" src={assets.company_icon} alt="Company Logo" />
             </div>
@@ -12,10 +20,22 @@ const JobCart = ({ job }) => {
                 <span className="bg-blue-50 border border-blue-200 px-2 py-1.5 rounded">{job.location}</span>
                 <span className="bg-red-50 border border-red-200 px-2 py-1.5 rounded">{job.level}</span>
             </div>
-            <p className="text-gray-500 mt-4 text-sm" dangerouslySetInnerHTML={{__html:job.description.slice(0,150)}}></p>
+            <div className="text-gray-500 mt-4 text-sm line-clamp-3">
+                {job.description.replace(/<[^>]+>/g, '').slice(0, 150)}...
+            </div>
             <div className="mt-4 flex gap-4 text-sm">
-                <button className="bg-blue-500 text-white px-4 py-2 rounded">Apply now</button>
-                <button className="text-gray-500 border border-gray-500 px-4 py-2 rounded">Learn more</button>
+                <button 
+                    onClick={() => handleNavigation(`/jobs/${job._id}`)}
+                    className="text-gray-500 border border-gray-500 px-4 py-2 rounded hover:bg-gray-50"
+                >
+                    Learn more
+                </button>
+                <button 
+                    onClick={() => handleNavigation(`/apply-job/${job._id}`)}
+                    className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                >
+                    Apply now
+                </button>
             </div>
         </div>
     )

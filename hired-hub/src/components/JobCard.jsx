@@ -25,7 +25,7 @@ const JobCart = ({ job }) => {
             </div>
             <div className="mt-4 flex gap-4 text-sm">
                 <button 
-                    onClick={() => handleNavigation(`/jobs/${job._id}`)}
+                    onClick={() => handleNavigation(`/apply-job/${job._id}`)}
                     className="text-gray-500 border border-gray-500 px-4 py-2 rounded hover:bg-gray-50"
                 >
                     Learn more

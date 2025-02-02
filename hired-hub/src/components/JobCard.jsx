@@ -1,6 +1,7 @@
 import React from "react";
 import { assets } from "../assets/assets";
 import { useNavigate } from "react-router-dom";
+import JobCardLoading from '../components/JobCardLoading'
 
 const JobCart = ({ job }) => {
     const navigate = useNavigate();
@@ -10,7 +11,7 @@ const JobCart = ({ job }) => {
         navigate(path);
     };
 
-    return(
+    return job ? (
         <div className="border p-6 shadow rounded hover:shadow-lg transition-shadow">
             <div className="flex justify-between items-center">
                 <img className="h-8" src={assets.company_icon} alt="Company Logo" />
@@ -38,6 +39,8 @@ const JobCart = ({ job }) => {
                 </button>
             </div>
         </div>
+    ) : (
+        <JobCardLoading/>
     )
 }
 

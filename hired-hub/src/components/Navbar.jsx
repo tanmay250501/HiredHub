@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { assets } from '../assets/assets.js';
 import { useClerk, UserButton, useUser } from '@clerk/clerk-react';
+import { AppContext } from "../context/AppContext.jsx";
 
 const Navbar = () => {
     const { openSignIn } = useClerk();
@@ -20,6 +21,8 @@ const Navbar = () => {
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
+    const {setShowRecruiterLogin} = useContext(AppContext)
 
     return (
         <div className={`fixed top-0 w-full z-50 transition-all duration-300 
@@ -40,7 +43,7 @@ const Navbar = () => {
                     </div>
                 ) : (
                     <div className="flex gap-4 text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl">
-                        <button className="text-gray-600">Recruiter Login</button>
+                        <button onClick={e => setShowRecruiterLogin(true)} className="text-gray-600">Recruiter Login</button>
                         <button 
                             onClick={() => openSignIn()} 
                             className="bg-blue-600 text-white px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 py-2 rounded-full"

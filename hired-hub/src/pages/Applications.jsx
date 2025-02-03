@@ -88,32 +88,40 @@ const Applications = () => {
             <tbody>
               {currentJobs.map((job, index) => (
                 <tr key={index} className="hover:bg-gray-50 transition">
-                  <td className="py-3 px-4 flex items-center gap-2 border-b align-middle">
-                    <img
-                      className="w-8 h-8 rounded-full"
-                      src={job.logo}
-                      alt="Company Logo"
-                    />
-                    <span className="whitespace-nowrap">{job.company}</span>
-                  </td>
+                  {/* Company Column */}
                   <td className="py-3 px-4 border-b align-middle">
-                    {job.title}
+                    <div className="flex items-center gap-3">
+                      <img
+                        className="w-8 h-8 object-contain"
+                        src={job.logo}
+                        alt="Company Logo"
+                      />
+                      <span className="text-sm font-medium">{job.company}</span>
+                    </div>
                   </td>
+
+                  {/* Job Title Column */}
+                  <td className="py-3 px-4 border-b align-middle">{job.title}</td>
+
+                  {/* Location Column */}
                   <td className="py-3 px-4 border-b hidden sm:table-cell align-middle">
                     {job.location}
                   </td>
+
+                  {/* Date Column */}
                   <td className="py-3 px-4 border-b hidden sm:table-cell align-middle">
                     {moment(job.date).format("ll")}
                   </td>
+
+                  {/* Status Column */}
                   <td className="py-3 px-4 border-b align-middle font-medium">
                     <span
-                      className={`inline-flex items-center justify-center w-32 h-10 rounded-lg font-medium ${
-                        job.status === "Accepted"
+                      className={`inline-flex items-center justify-center w-32 h-10 rounded-lg font-medium ${job.status === "Accepted"
                           ? "bg-green-100 text-green-800 border border-green-400"
                           : job.status === "Rejected"
-                          ? "bg-red-100 text-red-800 border border-red-400"
-                          : "bg-blue-100 text-blue-800 border border-blue-400"
-                      }`}
+                            ? "bg-red-100 text-red-800 border border-red-400"
+                            : "bg-blue-100 text-blue-800 border border-blue-400"
+                        }`}
                     >
                       {job.status}
                     </span>
@@ -121,6 +129,7 @@ const Applications = () => {
                 </tr>
               ))}
             </tbody>
+
           </table>
         </div>
 
@@ -144,11 +153,10 @@ const Applications = () => {
               <a href="#job-list" key={index}>
                 <button
                   onClick={() => setCurrentPage(index + 1)}
-                  className={`w-10 h-10 flex items-center justify-center border border-gray-300 rounded ${
-                    currentPage === index + 1
-                      ? "bg-blue-100 text-blue-500"
-                      : "text-gray-500"
-                  }`}
+                  className={`w-10 h-10 flex items-center justify-center border border-gray-300 rounded ${currentPage === index + 1
+                    ? "bg-blue-100 text-blue-500"
+                    : "text-gray-500"
+                    }`}
                 >
                   {index + 1}
                 </button>

@@ -40,8 +40,8 @@ const RecruiterLogin = () => {
                 </h1>
                 <p className="text-sm mb-6">
                     {state === "Login"
-                        ? "Welcome back, job seeker! Time to log in and land that dream job."
-                        : "New here? Create an account and start your job hunt today!"}
+                        ? "Welcome back, employee seeker! Time to log in and find perfect candidate."
+                        : "New here? Create an account and start your employee hunt today!"}
                 </p>
 
                 {state === "Sign Up" && textDataSubmited ? (

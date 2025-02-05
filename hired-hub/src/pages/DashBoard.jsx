@@ -6,7 +6,7 @@ const DashBoard = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="min-h-screen flex bg-gray-100">
+        <div className="min-h-screen flex ">
             {/* Navbar for Recruiters */}
             <div className="w-full shadow py-3 sm:py-4 bg-white fixed top-0 left-0 right-0 z-50">
                 <div className="px-4 sm:px-5 flex justify-between items-center max-w-7xl mx-auto">
@@ -34,7 +34,8 @@ const DashBoard = () => {
                             />
                             <div className="absolute hidden group-hover:block top-0 right-0 z-10 text-black rounded pt-12">
                                 <ul className="list-none m-0 p-2 bg-white rounded-md border text-sm">
-                                    <li className="py-1 px-2 cursor-pointer pr-10">Logout</li>
+                                    <li className="py-1 px-2 cursor-pointer pr-10 whitespace-nowrap hover:bg-gray-100 ">My Profile</li>
+                                    <li className="py-1 px-2 cursor-pointer pr-10 whitespace-nowrap hover:bg-gray-100">Logout</li>
                                 </ul>
                             </div>
                         </div>

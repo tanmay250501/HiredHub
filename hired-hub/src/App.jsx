@@ -9,6 +9,7 @@ import AddJobs from "./pages/AddJobs";
 import DashBoard from "./pages/Dashboard";
 import ManageJobs from "./pages/ManageJobs";
 import ViewApplications from "./pages/ViewApplications";
+import 'quill/dist/quill.snow.css'
 
 const App = () => {
   const { showRecruiterLogin } = useContext(AppContext);

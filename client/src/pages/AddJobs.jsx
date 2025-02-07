@@ -63,7 +63,7 @@ const AddJobs = () => {
               <label className="block text-sm font-medium">Job Category</label>
               <select
                 onChange={(e) => setCategory(e.target.value)}
-                className="w-full p-2 border rounded-md"
+                className="w-full p-2 border rounded-md" required
               >
                 {JobCategories.map((cat, index) => (
                   <option key={index} value={cat}>

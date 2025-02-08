@@ -79,9 +79,9 @@ const AddJobs = () => {
                 onChange={(e) => setLocation(e.target.value)}
                 className="w-full p-2 border rounded-md"
               >
-                {JobLocations.map((loc, index) => (
-                  <option key={index} value={loc}>
-                    {loc}
+                {JobLocations.map((location, index) => (
+                  <option key={index} value={location}>
+                    {location}
                   </option>
                 ))}
               </select>

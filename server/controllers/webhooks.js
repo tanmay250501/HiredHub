@@ -3,6 +3,9 @@ import User from "../models/User.js";
 
 export const clerkWebhooks = async (req, res) => {
   try {
+    // Log headers for debugging
+    console.log("Incoming Headers:", req.headers);
+
     // Convert the raw body (Buffer) to a string
     const rawBody = req.body.toString();
 
@@ -13,7 +16,7 @@ export const clerkWebhooks = async (req, res) => {
     await whook.verify(rawBody, {
       "svix-id": req.headers["svix-id"],
       "svix-timestamp": req.headers["svix-timestamp"],
-      "svix-signature": req.headers["svix-signature"],
+      "svix-signature": req.headers["svix-signature"]
     });
 
     // Parse the raw body now that verification has succeeded
@@ -23,33 +26,30 @@ export const clerkWebhooks = async (req, res) => {
       case "user.created": {
         const userData = {
           _id: data.id,
-          email: data.email_addresses[0].email_address, // Assumes Clerk sends an array
+          email: data.email_addresses[0].email_address,
           name: `${data.first_name} ${data.last_name}`,
           image: data.image_url,
-          resume: "",
+          resume: ""
         };
         await User.create(userData);
         res.json({ success: true });
         break;
       }
-
       case "user.updated": {
         const userData = {
           email: data.email_addresses[0].email_address,
           name: `${data.first_name} ${data.last_name}`,
-          image: data.image_url,
+          image: data.image_url
         };
         await User.findByIdAndUpdate(data.id, userData);
         res.json({ success: true });
         break;
       }
-
       case "user.deleted": {
         await User.findByIdAndDelete(data.id);
         res.json({ success: true });
         break;
       }
-
       default:
         res.json({ success: true, message: "Unhandled event type" });
         break;

@@ -11,11 +11,7 @@ import bodyParser from "body-parser";
 const app = express();
 
 // NOTE: Define the webhook route first so that it uses the raw body parser
-app.post(
-  "/webhooks",
-  bodyParser.raw({ type: "application/json" }),
-  clerkWebhooks
-);
+app.post('/webhooks', bodyParser.raw({ type: 'application/json' }), clerkWebhooks);
 
 // Now apply global middlewares for other routes
 app.use(cors());
